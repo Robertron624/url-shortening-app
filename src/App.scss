@@ -1,0 +1,76 @@
+// ## Colors
+
+// ### Primary
+
+$cyan: hsl(180, 66%, 49%);
+$dark-violet: hsl(257, 27%, 26%);
+
+// ### Secondary
+
+$red: hsl(0, 87%, 67%);
+
+// ### Neutral
+
+$gray: hsl(0, 0%, 75%);
+$grayish-violet: hsl(257, 7%, 63%);
+$very-dark-blue: hsl(255, 11%, 22%);
+$very-dark-violet: hsl(260, 8%, 14%);
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 90%;
+}
+
+.app {
+
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    padding: 1rem 1rem;
+    align-items: center;
+    
+    p {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
+  main {
+    padding: 0 1rem;
+  
+    .hero{
+      width: 100%;
+    }
+
+    .more-than {
+      margin-top: 2rem;
+
+      h1 {
+        color: $very-dark-violet;
+      }
+
+      p {
+        color: $gray;
+        margin-top: 1rem;
+      }
+
+      button {
+        background-color: $cyan;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
