@@ -28,7 +28,6 @@ $custom-max-width: 1080px;
 }
 
 #root {
-  max-width: 1080px;
   margin: 0 auto;
   text-align: center;
 }
@@ -46,6 +45,8 @@ $custom-max-width: 1080px;
     padding: 1rem 1rem;
     align-items: center;
     position: relative;
+    max-width: $custom-max-width;
+    margin-inline: auto;
 
     .logo-container-header {
       display: flex;
@@ -178,10 +179,6 @@ $custom-max-width: 1080px;
   main {
     // padding: 0 1rem;
     background-color: white;
-  
-    // .hero{
-    //   width: 90%;
-    // }
 
     .more-than {
       margin-top: 2rem;
@@ -191,6 +188,7 @@ $custom-max-width: 1080px;
       @include desktop {
         display: flex;
         width: 100%;
+        max-width: $custom-max-width;
 
         .hero {
           width: 50%;
@@ -233,6 +231,7 @@ $custom-max-width: 1080px;
       margin: 4rem 0 0;
       width: 80%;
       margin-inline: auto;
+      position: relative;
       background-image: url('/bg-shorten-desktop.svg');
       background-repeat: no-repeat;
       background-size: cover;
@@ -241,11 +240,10 @@ $custom-max-width: 1080px;
       
       @include desktop() {
         width: 100%;
+        max-width: $custom-max-width;
       }
 
       form {
-
-
         @include desktop(){
           flex-direction: row;
           gap: 1rem;
@@ -300,6 +298,8 @@ $custom-max-width: 1080px;
         flex-direction: column;
         align-items: center;
         gap: 4rem;
+        padding:4rem 0rem 4rem;
+        width: 100vw;
       }
 
       .text {
@@ -325,6 +325,7 @@ $custom-max-width: 1080px;
         @include desktop() {
           flex-direction: row;
           gap: 2rem;
+          max-width: $custom-max-width;
         }
 
         .card {
