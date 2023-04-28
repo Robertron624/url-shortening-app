@@ -18,8 +18,17 @@ $grayish-violet: hsl(257, 7%, 63%);
 $very-dark-blue: hsl(255, 11%, 22%);
 $very-dark-violet: hsl(260, 8%, 14%);
 
+
+$custom-max-width: 1080px;
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
 #root {
-  max-width: 1280px;
+  max-width: 1080px;
   margin: 0 auto;
   text-align: center;
 }
@@ -37,6 +46,72 @@ $very-dark-violet: hsl(260, 8%, 14%);
     padding: 1rem 1rem;
     align-items: center;
     position: relative;
+
+    .logo-container-header {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .desktop-nav {
+      display: none;
+
+      @include desktop {
+
+        display: block;
+        nav ul {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+
+          li {
+            a {
+              color: $grayish-violet;
+              text-decoration: none;
+              font-weight: 700;
+              font-size: 1rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .account-desktop {
+      display: none;
+
+      @include desktop {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        button {
+          font-weight: 700;
+          font-size: 1rem;
+          cursor: pointer;
+          &:nth-of-type(1) {
+            background-color: transparent;
+            color: $grayish-violet;
+            border: none;
+          }
+
+          &:nth-of-type(2) {
+            background-color: $cyan;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: .5rem 1rem;
+          }
+
+        }
+      }
+    }
+
+    .menu {
+      @include desktop {
+        display: none;
+      }
+    }
 
     .mobile-navigation {
       position: absolute;
@@ -104,14 +179,33 @@ $very-dark-violet: hsl(260, 8%, 14%);
     // padding: 0 1rem;
     background-color: white;
   
-    .hero{
-      width: 90%;
-    }
+    // .hero{
+    //   width: 90%;
+    // }
 
     .more-than {
       margin-top: 2rem;
       width: 90%;
       margin-inline: auto;
+
+      @include desktop {
+        display: flex;
+        width: 100%;
+
+        .hero {
+          width: 50%;
+          order: 1;
+        }
+
+        .text {
+          width: 50%;
+          text-align: left;
+
+          h1 {
+            font-size: 4rem;
+          }
+        }
+      }
 
       h1 {
         color: $very-dark-violet;
@@ -139,10 +233,24 @@ $very-dark-violet: hsl(260, 8%, 14%);
       margin: 4rem 0 0;
       width: 80%;
       margin-inline: auto;
+      background-image: url('/bg-shorten-desktop.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: $dark-violet;
+      border-radius: 10px;
+      
+      @include desktop() {
+        width: 100%;
+      }
 
       form {
-        background-color: $dark-violet;
-        border-radius: 10px;
+
+
+        @include desktop(){
+          flex-direction: row;
+          gap: 1rem;
+          padding: 2rem;
+        }
         padding: 1rem 1rem;
         display: flex;
         flex-direction: column;
@@ -158,6 +266,11 @@ $very-dark-violet: hsl(260, 8%, 14%);
         }
 
         input {
+
+          @include desktop() {
+            width: 70%;
+          }
+
           &::placeholder {
             color: $grayish-violet;
             font-weight: 400;
@@ -169,6 +282,10 @@ $very-dark-violet: hsl(260, 8%, 14%);
           color: white;
           cursor: pointer;
           width: 100%;
+
+          @include desktop() {
+            width: 30%;
+          }
         }
       }
 
@@ -178,22 +295,56 @@ $very-dark-violet: hsl(260, 8%, 14%);
       background-color: $background-main;
       padding:4rem 2rem 4rem;
 
-
-      h2 {
-        margin-bottom: 1.5rem;
+      @include desktop() {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
       }
 
-      & > p {
-        color: $grayish-violet;
-        margin-bottom: 4rem;
+      .text {
+        h2 {
+          margin-bottom: 1.5rem;
+        }
+  
+        & > p {
+          color: $grayish-violet;
+          margin-bottom: 4rem;
+        }
+        
+
+        
       }
-      
+
+
       .cards {
         display: flex;
         flex-direction: column;
         gap: 4rem;
 
+        @include desktop() {
+          flex-direction: row;
+          gap: 2rem;
+        }
+
         .card {
+
+          @include desktop() {
+            
+            height: 170px;
+
+            &:nth-of-type(2) {
+              margin-top: 2rem;
+            }
+
+            &:nth-of-type(3) {
+              margin-top: 4rem;
+            }
+
+          }
+
+
+
           background-color: white;
           border-radius: 10px;
           padding: 3rem 1rem;
@@ -220,6 +371,11 @@ $very-dark-violet: hsl(260, 8%, 14%);
               justify-content: center;
               position: absolute;
               top: -35px;
+
+              @include desktop() {
+                left: 40px;
+              }
+
               img {
                 width: 2rem;
                 height: 2rem;
@@ -238,14 +394,20 @@ $very-dark-violet: hsl(260, 8%, 14%);
   footer {
 
     .boost {
-      background-color: $very-dark-violet;
+      background-color: $dark-violet;
       padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 2rem;
+      background-size: cover;
+      background-repeat: no-repeat;
 
       background-image: url('/bg-boost-mobile.svg');
+
+      @include desktop() {
+        background-image: url('/bg-boost-desktop.svg');
+      }
 
       h2 {
         color: white;
@@ -267,6 +429,15 @@ $very-dark-violet: hsl(260, 8%, 14%);
       background-color: $very-dark-violet;
       color: #fff;
       padding: 3rem 0;
+
+      @include desktop(){
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+        padding: 3rem 2rem;
+        text-align: left;
+      }
 
       .logo-container {
         padding: 0 0 3rem;
@@ -324,6 +495,10 @@ $very-dark-violet: hsl(260, 8%, 14%);
         margin-top: 2rem;
         display: flex;
         justify-content: center;
+
+        @include desktop() {
+          margin-top: 0;
+        }
 
         ul {
           display: flex;

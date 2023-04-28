@@ -54,8 +54,17 @@ function App() {
   return (
     <div className='app'>
       <div className='header'>
-        <div className="logo-container">
+        <div className="logo-container-header">
           <p className='logo'>Shortly</p>
+          <div className="desktop-nav">
+            <nav aria-label='desktop'>
+              <ul>
+                <li><a href='/features'>Features</a></li>
+                <li><a href='/pricing'>Pricing</a></li>
+                <li><a href='/resources'>Resources</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
         <div onClick={handleMobileMenuClick} className="menu">
           <img src="menu.png" alt="" />
@@ -73,10 +82,15 @@ function App() {
             <button>Sign Up</button>
           </div>
         </div>
+        <div className="account-desktop">
+          <button>Login</button>
+          <button>Sign Up</button>
+        </div>
       </div>
       <main>
-        <img className='hero' src="illustration-working.svg" alt="person working at a desk" />
         <section className="more-than">
+        <img className='hero' src="illustration-working.svg" alt="person working at a desk" />
+        <div className="text">
           <h1>More than just shorter links</h1>
           <p>
             Build your brand's recognition and get detailed insights on how your links are performing.
@@ -84,15 +98,18 @@ function App() {
           <button>
             Get Started
           </button>
+        </div>
         </section>
         <section className="shortener-forms">
           <Shortener />
         </section>
         <section className="statistics">
-          <h2>Advanced Statistics</h2>
-          <p>
-            Track how your links are performing across the web with our advanced statistics dashboard.
-          </p>
+          <div className="text">
+            <h2>Advanced Statistics</h2>
+            <p>
+              Track how your links are performing across the web with our advanced statistics dashboard.
+            </p>
+          </div>
           <div className="cards">
             {statistics.map((stat, i) => (
               <div className="card" key={i}>
