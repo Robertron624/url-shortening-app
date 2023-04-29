@@ -194,6 +194,10 @@ $custom-max-width: 1080px;
   main {
     // padding: 0 1rem;
     background-color: white;
+    
+    .hero {
+      width: 100%;
+    }
 
     .more-than {
       margin-top: 2rem;
@@ -243,11 +247,12 @@ $custom-max-width: 1080px;
     }
 
     .shortener-forms {
-      margin: 4rem 0 0;
+      margin: 8rem 0 0;
       width: 80%;
       margin-inline: auto;
       position: relative;
-
+      display: flex;
+      justify-content: center;
       
       @include desktop() {
         width: 100%;
@@ -262,6 +267,8 @@ $custom-max-width: 1080px;
         border-radius: 10px;
         position: absolute;
         background-image: url('/bg-shorten-mobile.svg');
+        top: -50px;
+        width: 95%;
 
         @include desktop(){
           background-image: url('/bg-shorten-desktop.svg');
@@ -314,7 +321,7 @@ $custom-max-width: 1080px;
 
     .statistics {
       background-color: $background-main;
-      padding:4rem 2rem 4rem;
+      padding:9rem 2rem 4rem;
 
       @include desktop() {
         display: flex;
@@ -353,19 +360,29 @@ $custom-max-width: 1080px;
 
         &::after {
           content: "";
-          height: 10px;
-          width: 40%;
+          height: 400px;
+          width: 10px;
           background-color: $cyan;
           position: absolute;
           z-index: 1;
-          top: 110px;
-          left: 30%;
+          top: 230px;
+          left: 49%;
         }
 
         @include desktop() {
           flex-direction: row;
           gap: 2rem;
           max-width: $custom-max-width;
+          &::after {
+            content: "";
+            height: 10px;
+            width: 40%;
+            background-color: $cyan;
+            position: absolute;
+            z-index: 1;
+            top: 110px;
+            left: 30%;
+          }
         }
 
         .card {

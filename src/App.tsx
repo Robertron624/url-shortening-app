@@ -111,7 +111,7 @@ function App() {
             </p>
           </div>
           <div className="cards">
-            {statistics.map((stat, i) => (
+            {statistics.map((stat:Statistic, i:number) => (
               <div className="card" key={i}>
                 <div className="image">
                   <img src={stat.image} alt="" />
