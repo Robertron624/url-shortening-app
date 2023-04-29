@@ -27,12 +27,21 @@ $custom-max-width: 1080px;
   }
 }
 
+
+
 #root {
   margin: 0 auto;
   text-align: center;
 }
 
 .app {
+
+  button.hoovered {
+    transition: all .3s ease-in-out;
+    &:hover {
+      background-color: rgb(170	225	225	) !important;
+    }
+  }
 
   .hidden {
     display: none;
@@ -72,6 +81,11 @@ $custom-max-width: 1080px;
               font-weight: 700;
               font-size: 1rem;
               cursor: pointer;
+              transition: color .3s ease-in-out;
+
+              &:hover {
+                color: $very-dark-violet;
+              }
             }
           }
         }
@@ -102,6 +116,7 @@ $custom-max-width: 1080px;
             border: none;
             border-radius: 30px;
             padding: .5rem 1rem;
+
           }
 
         }
@@ -232,22 +247,29 @@ $custom-max-width: 1080px;
       width: 80%;
       margin-inline: auto;
       position: relative;
-      background-image: url('/bg-shorten-desktop.svg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: $dark-violet;
-      border-radius: 10px;
+
       
       @include desktop() {
         width: 100%;
         max-width: $custom-max-width;
+        margin: 9rem auto 0;
       }
 
       form {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: $dark-violet;
+        border-radius: 10px;
+        position: absolute;
+        background-image: url('/bg-shorten-mobile.svg');
+
         @include desktop(){
+          background-image: url('/bg-shorten-desktop.svg');
           flex-direction: row;
           gap: 1rem;
           padding: 2rem;
+          width: 100%;
+          top: -50px;
         }
         padding: 1rem 1rem;
         display: flex;
@@ -266,7 +288,7 @@ $custom-max-width: 1080px;
         input {
 
           @include desktop() {
-            width: 70%;
+            width: 82%;
           }
 
           &::placeholder {
@@ -282,7 +304,8 @@ $custom-max-width: 1080px;
           width: 100%;
 
           @include desktop() {
-            width: 30%;
+            width: 12%;
+            padding: 0.8rem 0;
           }
         }
       }
@@ -298,7 +321,7 @@ $custom-max-width: 1080px;
         flex-direction: column;
         align-items: center;
         gap: 4rem;
-        padding:4rem 0rem 4rem;
+        padding:10rem 0rem 4rem;
         width: 100vw;
       }
 
@@ -310,6 +333,11 @@ $custom-max-width: 1080px;
         & > p {
           color: $grayish-violet;
           margin-bottom: 4rem;
+
+          @include desktop() {
+            text-align: center;
+            padding: 0 30rem;
+          }
         }
         
 
@@ -321,6 +349,18 @@ $custom-max-width: 1080px;
         display: flex;
         flex-direction: column;
         gap: 4rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          height: 10px;
+          width: 40%;
+          background-color: $cyan;
+          position: absolute;
+          z-index: 1;
+          top: 110px;
+          left: 30%;
+        }
 
         @include desktop() {
           flex-direction: row;
@@ -329,9 +369,12 @@ $custom-max-width: 1080px;
         }
 
         .card {
+          z-index: 2;
 
           @include desktop() {
-            
+            text-align: left;
+            align-items: flex-start;
+            padding : 3rem 2rem;
             height: 170px;
 
             &:nth-of-type(2) {
@@ -374,7 +417,7 @@ $custom-max-width: 1080px;
               top: -35px;
 
               @include desktop() {
-                left: 40px;
+                left: 25px;
               }
 
               img {
@@ -430,6 +473,14 @@ $custom-max-width: 1080px;
       background-color: $very-dark-violet;
       color: #fff;
       padding: 3rem 0;
+
+      a {
+        transition: color 0.3s ease-in-out;
+      }
+
+      a:hover {
+        color: $cyan;
+      }
 
       @include desktop(){
         display: flex;
@@ -504,8 +555,14 @@ $custom-max-width: 1080px;
         ul {
           display: flex;
           gap: 1rem;
+          align-items: center;
           a {
             cursor: pointer;
+            color: white;
+
+            &:hover {
+              color: $cyan;
+            }
           }
         }
       }
