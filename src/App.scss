@@ -27,8 +27,6 @@ $custom-max-width: 1080px;
   }
 }
 
-
-
 #root {
   margin: 0 auto;
   text-align: center;
@@ -45,6 +43,14 @@ $custom-max-width: 1080px;
 
   .hidden {
     display: none;
+  }
+
+  .visible {
+    visibility: visible;
+  }
+
+  .invisible {
+    visibility: hidden;
   }
 
   .header {
@@ -270,6 +276,57 @@ $custom-max-width: 1080px;
         top: -50px;
         width: 95%;
 
+        .input-container {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          gap: .3rem;
+
+          .input-error {
+            border: 1px solid $red;
+
+            &::placeholder {
+              color: $red;
+              opacity: .6;
+            }
+          }
+
+          span {
+            font-size: .7rem;
+            color: $red;
+            font-style: italic;
+          }
+
+          @include desktop(){
+            width: 82%;
+          }
+
+          input {
+
+            @include desktop() {
+              padding: 0;
+
+            }
+  
+            &::placeholder {
+              color: $grayish-violet;
+              font-weight: 400;
+            }
+          }
+        }
+
+        button {
+          background-color: $cyan;
+          color: white;
+          cursor: pointer;
+          width: 100%;
+
+          @include desktop() {
+            width: 12%;
+            padding: 0.8rem 0;
+          }
+        }
+
         @include desktop(){
           background-image: url('/bg-shorten-desktop.svg');
           flex-direction: row;
@@ -290,29 +347,9 @@ $custom-max-width: 1080px;
           padding: .5rem 1rem;
           font-size: 1rem;
           font-weight: 700;
-        }
-
-        input {
 
           @include desktop() {
-            width: 82%;
-          }
-
-          &::placeholder {
-            color: $grayish-violet;
-            font-weight: 400;
-          }
-        }
-
-        button {
-          background-color: $cyan;
-          color: white;
-          cursor: pointer;
-          width: 100%;
-
-          @include desktop() {
-            width: 12%;
-            padding: 0.8rem 0;
+            height: 56px;
           }
         }
       }

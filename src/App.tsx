@@ -1,11 +1,8 @@
 import { useState } from 'react'
 import './App.scss'
-
-type Statistic = {
-  title: string
-  description: string
-  image: string
-}
+import Shortener from './components/Shortener'
+import ShortenerResult from './components/ShortenerResult'
+import { ShortenedObject, Statistic } from './types'
 
 const statistics: Statistic[] = [
   {
@@ -26,26 +23,9 @@ const statistics: Statistic[] = [
   }
 ]
 
-
-function Shortener(){
-  const [longUrl, setLongUrl] = useState('')
-  const [shortUrl, setShortUrl] = useState('')
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log('submitted -> ', longUrl)
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" placeholder='Shorten a link here...' value={longUrl} onChange={e => setLongUrl(e.target.value)} />
-      <button className='hoovered' type='submit'>Shorten It!</button>
-    </form>
-  )
-}
-
 function App() {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false)
+  const [shortUrls, setShortUrls] = useState<ShortenedObject[]>([])
 
   function handleMobileMenuClick() {
     setMobileMenuIsOpen((prev) => !prev)
@@ -101,7 +81,16 @@ function App() {
         </div>
         </section>
         <section className="shortener-forms">
-          <Shortener />
+          <Shortener shortUrls={shortUrls} setShortUrls={setShortUrls}/>
+          <div className="shortener-results">
+            {shortUrls.map((shortenedObject: ShortenedObject, i: number) => (
+              <ShortenerResult
+                key={i}
+                originalUrl={shortenedObject.originalUrl}
+                shortUrl={shortenedObject.shortUrl}
+              />
+            ))}
+          </div>
         </section>
         <section className="statistics">
           <div className="text">
