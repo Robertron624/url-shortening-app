@@ -137,6 +137,9 @@ $custom-max-width: 1080px;
 
     .mobile-navigation {
       position: absolute;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
       background-color: $dark-violet;
       color: white;
       width: 74%;
@@ -304,7 +307,7 @@ $custom-max-width: 1080px;
           input {
 
             @include desktop() {
-              padding: 0;
+              padding: 0 0 0 2rem;
             }
   
             &::placeholder {
@@ -374,6 +377,11 @@ $custom-max-width: 1080px;
         flex-direction: column;
         gap: 1.5rem;
 
+        @include desktop(){
+          width: 100%;
+          max-width: 1144px;
+        }
+
         .shortener-result {
 
           background-color: white;
@@ -383,11 +391,32 @@ $custom-max-width: 1080px;
           font-size: .875rem;
           font-weight: 700;
 
+          @include desktop() {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .desktop-right {
+              display: flex;
+              gap: 1rem;
+              width: 22%;
+
+              button {
+                width: 45%;
+              }
+            }
+          }
+
           .original-url {
             color: $very-dark-violet;
             border-bottom: 1px solid $gray;
             padding-bottom: .5rem;
             overflow-wrap: anywhere;
+
+            @include desktop {
+              border-bottom: none;
+              padding-bottom: 0;
+            }
           }
           .short-url {
             color: $cyan;
@@ -555,6 +584,7 @@ $custom-max-width: 1080px;
 
       @include desktop() {
         background-image: url('/bg-boost-desktop.svg');
+        background-color: $dark-violet;
       }
 
       h2 {

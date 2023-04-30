@@ -9,8 +9,8 @@ function Shortener({
     shortUrls: ShortenedObject[];
     setShortUrls: React.Dispatch<React.SetStateAction<ShortenedObject[]>>;
 }) {
-    const [longUrl, setLongUrl] = useState("");
-    const [error, setError] = useState(false);
+    const [longUrl, setLongUrl] = useState<string>("");
+    const [error, setError] = useState<boolean>(false);
 
     const BASE_API_URL = "https://api.shrtco.de/v2/shorten?url=";
 
@@ -27,7 +27,6 @@ function Shortener({
 
         response
             .then((res) => {
-                console.log("reponse shorter api -> ", res.data);
 
                 const objectToSave = {
                     originalUrl: res.data.result.original_link,
@@ -35,7 +34,12 @@ function Shortener({
                 };
 
                 setShortUrls([...shortUrls, objectToSave]);
-                console.log('Saved object -> ', objectToSave);
+
+                // Save to local storage
+                localStorage.setItem(
+                    "shortUrls",
+                    JSON.stringify([...shortUrls, objectToSave])
+                );
             })
             .catch((err) => {
                 console.log("error -> ", err);

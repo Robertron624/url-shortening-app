@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Add solution URL here](https://github.com/Robertron624/url-shortening-app)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
@@ -47,53 +47,53 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Vite](https://vitejs.dev/) - For bundling
+- [SaSS](https://sass-lang.com/) - For styles
+- [axios](https://axios-http.com/docs/intro) - For API calls
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+With this project I learned key TypeScript concepts such as interfaces, types, and generics. I also learned how to use the axios library to make API calls and how to use the localStorage API to store data in the browser. I also learned how to use the clipboard API to copy text to the clipboard.
 
-To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+My way to handle the copy to clipboard functionality was to use the clipboard API. I used the navigator.clipboard.writeText() method to copy the text to the clipboard. I also used the useState hook to keep track of the copied state and change the button's text accordingly.
+
+```ts
+function ShortenerResult({originalUrl, shortUrl}: ShortenedObject ) {
+
+    const [copied, setCopied] = useState<boolean>(false);
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(shortUrl);
+        setCopied(true);
+    }
+
+    return (
+        <div className="shortener-result">
+            <p className="original-url">{originalUrl}</p>
+            <div className="desktop-right">
+                <p className="short-url">{shortUrl}</p>
+                <button onClick={handleCopy} className={`hoovered ${copied ? 'copied' : 'not-copied'}`}>{copied ? 'Copied!': 'Copy'}</button>
+            </div>
+        </div>
+    );
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I want to keep working in projects that involve external API calls and data manipulation. I also want to keep working on my CSS skills and learn more about animations and transitions.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Click Outside to Close - React Hook](https://www.youtube.com/watch?v=HfZ7pdhS43s&t=2s) - Great video that helped me detect when the user clicks outside of a component. I'd recommend it to anyone still learning this concept.
+
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Personal Website - [Robert Ramirez](https://robert-ramirez.netlify.app)
+- Frontend Mentor User- [@Robertron624](https://www.frontendmentor.io/profile/Robertron624)
+- Twitter - [@robertdowny](https://www.twitter.com/robertdowny)
 
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 

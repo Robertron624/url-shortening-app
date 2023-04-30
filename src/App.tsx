@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.scss'
 import Shortener from './components/Shortener'
 import ShortenerResult from './components/ShortenerResult'
@@ -10,7 +10,6 @@ const statistics: Statistic[] = [
     description: 'Boost your brand recognition with each click. Generic links don\'t mean a thing. Branded links help instil confidence in your content.',
     image: 'icon-brand-recognition.svg'
   },
-
   {
     title: 'Detailed Records',
     description: 'Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.',
@@ -30,6 +29,23 @@ function App() {
   function handleMobileMenuClick() {
     setMobileMenuIsOpen((prev) => !prev)
   }
+
+  useEffect(() => {
+    // Get saved short urls from local storage
+    const savedShortUrls = localStorage.getItem('shortUrls')
+    if (savedShortUrls) {
+      setShortUrls(JSON.parse(savedShortUrls))
+    }
+
+    // Close mobile menu when clicking outside of it
+    const menuHandler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (!target.closest('.menu') && !target.closest('.mobile-navigation')) {
+        setMobileMenuIsOpen(false)
+      }
+    }
+    document.addEventListener('click', menuHandler)
+  }, [])
 
   return (
     <div className='app'>
