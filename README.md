@@ -30,12 +30,12 @@ Users should be able to:
   - The `input` field is empty
 
 ### Screenshot
-
+![image](https://user-images.githubusercontent.com/72587880/235377318-35759056-9c07-402c-811d-5559ca1abc5c.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Robertron624/url-shortening-app)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL](https://github.com/Robertron624/url-shortening-app)
+- Live Site URL: [Live site URL](https://phenomenal-vacherin-b70024.netlify.app/)
 
 ## My process
 
