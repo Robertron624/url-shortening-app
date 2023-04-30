@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './App.scss'
 import Shortener from './components/Shortener'
 import ShortenerResult from './components/ShortenerResult'
