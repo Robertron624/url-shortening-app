@@ -305,7 +305,6 @@ $custom-max-width: 1080px;
 
             @include desktop() {
               padding: 0;
-
             }
   
             &::placeholder {
@@ -367,6 +366,57 @@ $custom-max-width: 1080px;
         gap: 4rem;
         padding:10rem 0rem 4rem;
         width: 100vw;
+      }
+
+      .shortener-results {
+        margin-bottom: 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .shortener-result {
+
+          background-color: white;
+          border-radius: 10px;
+          padding: 1rem 1rem;
+          text-align: left;
+          font-size: .875rem;
+          font-weight: 700;
+
+          .original-url {
+            color: $very-dark-violet;
+            border-bottom: 1px solid $gray;
+            padding-bottom: .5rem;
+            overflow-wrap: anywhere;
+          }
+          .short-url {
+            color: $cyan;
+            margin: .5rem 0;
+          }
+
+          button {
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+
+            &.not-copied {
+              background-color: $cyan;
+            }
+
+            &.copied {
+              background-color: $dark-violet !important;
+            }
+          }
+        }
+
+
+
+  
       }
 
       .text {

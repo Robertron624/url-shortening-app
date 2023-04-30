@@ -82,6 +82,8 @@ function App() {
         </section>
         <section className="shortener-forms">
           <Shortener shortUrls={shortUrls} setShortUrls={setShortUrls}/>
+        </section>
+        <section className="statistics">
           <div className="shortener-results">
             {shortUrls.map((shortenedObject: ShortenedObject, i: number) => (
               <ShortenerResult
@@ -91,8 +93,6 @@ function App() {
               />
             ))}
           </div>
-        </section>
-        <section className="statistics">
           <div className="text">
             <h2>Advanced Statistics</h2>
             <p>
