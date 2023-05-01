@@ -88,8 +88,6 @@ I want to keep working in projects that involve external API calls and data mani
 
 - [Click Outside to Close - React Hook](https://www.youtube.com/watch?v=HfZ7pdhS43s&t=2s) - Great video that helped me detect when the user clicks outside of a component. I'd recommend it to anyone still learning this concept.
 
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
 ## Author
 
 - Personal Website - [Robert Ramirez](https://robert-ramirez.netlify.app)
